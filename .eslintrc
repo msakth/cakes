@@ -1,0 +1,30 @@
+{
+    "root": true,
+    "extends": [
+      "eslint:recommended",
+      "plugin:import/errors",
+      "plugin:import/warnings",
+      "plugin:react/recommended"
+    ],    
+    "settings": {
+        "react": {
+            "createClass": "createReactClass", 
+            "pragma": "React",  
+            "version": "16.0", 
+            "flowVersion": "0.53" 
+          },
+          "propWrapperFunctions": [ "forbidExtraProps" ]         
+    },
+      "parserOptions": {
+      "ecmaVersion": 7,
+      "sourceType": "module"      
+    },
+    "env": {
+      "browser": true,
+      "node": true,
+      "jest": true    
+    },
+    "rules": {
+        "no-console": 1
+    }
+  }

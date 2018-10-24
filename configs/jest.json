@@ -1,0 +1,25 @@
+{
+    "rootDir": "..",
+    "coverageDirectory": "<rootDir>/tests/__coverage__/",
+    "collectCoverageFrom": [
+      "<rootDir>/src/**/*.{js,jsx}",
+      "!<rootDir>/node_modules/",
+      "!<rootDir>/tests/"
+    ],
+    "setupFiles": [
+      "<rootDir>/tests/setupTests.js"
+    ],
+    "roots": [
+      "<rootDir>/src/",
+      "<rootDir>/tests/"
+    ],   
+    "moduleFileExtensions": ["js", "jsx"],
+    "transformIgnorePatterns": [
+      "/node_modules/"
+    ],
+    "testRegex": "/__tests__/.*\\.test\\.(js|jsx)$",
+    "moduleDirectories": [
+      "node_modules"
+    ]   
+  }
+  
