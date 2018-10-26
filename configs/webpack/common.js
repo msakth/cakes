@@ -19,8 +19,9 @@ module.exports = {
         use: [
           'style-loader',
           {loader: 'css-loader', options: {importLoaders: 1}}
-        ],
-      },      
+        ]        
+      }, 
+    
       {
         test: /\.(jpe?g|png|gif|svg)$/i,
         loaders: [
@@ -28,6 +29,16 @@ module.exports = {
           'image-webpack-loader?bypassOnDebug&optipng.optimizationLevel=7&gifsicle.interlaced=false',
         ],
       },
+      {
+        test: /\.(woff(2)?|ttf|eot|svg)(\?v=\d+\.\d+\.\d+)?$/,
+        use: [{
+            loader: 'file-loader',
+            options: {
+                name: '[name].[ext]',
+                outputPath: 'fonts/'
+            }
+        }]
+    }
     ],
   },
   plugins: [    

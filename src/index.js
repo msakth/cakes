@@ -1,24 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { AppContainer } from 'react-hot-loader';
-import App from './components/App.jsx';
+import Routes from './routes';
+import configureStore from './store/configureStore';
 
+import 'bootstrap/dist/css/bootstrap.css';
 
+const store = configureStore();
 
-const renderComponent = Component => {
-  ReactDOM.render(
-    <AppContainer>
-      <Component />
-    </AppContainer>,
-     document.getElementById('root')
-  );
-};
-
-renderComponent(App);
-
-// Hot Module Replacement API
-if (module.hot) {
-  module.hot.accept('./components/App', () => {
-    renderComponent(App);
-  });
-}
+ReactDOM.render(
+    <Routes store={store} />,
+    document.getElementById('root')
+  )

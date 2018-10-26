@@ -63,3 +63,6 @@ typings/
 # distribution folder
 dist/
 
+#tests folder
+tests/__coverage__
+
