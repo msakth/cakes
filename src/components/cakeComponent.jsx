@@ -19,7 +19,7 @@ class CakeComponent extends React.Component {
     if( fieldName === 'name' )  this.setState({name: event.target.value});
     if( fieldName === 'imageUrl' )  this.setState({imageUrl: event.target.value});    
     if( fieldName === 'comment' )  this.setState({comment: event.target.value});
-    if( fieldName === 'yumFactor' )  this.setState({comment: event.target.value});    
+    if( fieldName === 'yumFactor' )  this.setState({yumFactor: event.target.value});    
   }
 
     render() {

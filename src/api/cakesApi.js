@@ -1,4 +1,4 @@
-import { fetchCakesAync } from '../actions/fetchActions';
+import { fetchCakesAync, fetchCakeAsync } from '../actions/fetchActions';
 import { CreateCake } from '../actions/createCakeAction';
 
 
@@ -11,6 +11,12 @@ export const fetchCakes = () => {
 export const createCake = (cake) => {
     return CreateCake(`${root}/cakes`, cake);
 }
+
+export const fetchCake = (id) => {
+    return fetchCakeAsync(id);
+}
+
+
 
 
 

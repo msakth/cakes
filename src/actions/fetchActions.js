@@ -15,3 +15,10 @@ export const fetchCakesAync =  (url) => {
   }
 }
 
+export const fetchCakeAsync = (id) => {
+  return (dispatch, getState) => {
+    const cakes = getState().CakeReducer.cakes;    
+    return cakes.filter(cake => cake.id === id)[0];    
+  };
+}
+
