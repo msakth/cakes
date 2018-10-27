@@ -1,7 +1,7 @@
 import React from 'react';
-import {Link} from 'react-router-dom';
-import CakeRowComponent from './cakeRowComponent';
 
+import CakeRowComponent from './cakeRowComponent';
+import { withRouter } from 'react-router-dom';
 import '../styles/cakeList.css';
 
 
@@ -9,26 +9,25 @@ class CakeListComponent extends React.Component {
 
     getCakes = (cakes = []) => cakes.map( (cake, index) => <CakeRowComponent key={index} cake={cake} />);   
 
+    navigateToAddCake = (event) => {
+        event.preventDefault();
+        this.props.history.push('/newcake/');
+    }
+
     render() {
 
-        const cakeRows = this.getCakes(this.props.cakes)
+        const cakeRows = this.getCakes(this.props.cakes);
         
         return(
                 <React.Fragment>
                     <div>
-                        <Link className="btn btn-primary" to="/newcake/">Add New Cake</Link>
-                        
+                        <button type='button' className="btn btn-primary" onClick={this.navigateToAddCake}>Add New Cake</button>        
                     </div>
-                    
-                    
-
-                    
                     <table id="cake">
                     <thead>
                         <tr>
                             <th>Name</th>
-                            <th>ImageUrl</th>
-                                                        
+                            <th>ImageUrl</th>                                                        
                         </tr>
                     </thead>
                     <tbody>
@@ -36,10 +35,9 @@ class CakeListComponent extends React.Component {
                     </tbody>
                 </table>
                 
-            </React.Fragment>
-                
+            </React.Fragment>                
         );
     }
 }
 
-export default CakeListComponent;
+export default withRouter(CakeListComponent);

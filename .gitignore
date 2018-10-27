@@ -64,5 +64,5 @@ typings/
 dist/
 
 #tests folder
-tests/__coverage__
+tests/__coverage__/
 

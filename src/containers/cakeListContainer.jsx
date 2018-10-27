@@ -11,17 +11,16 @@ class CakeListContainer extends React.Component {
     this.props.fetchCakes();
   }
 
-  render() {
-    
+  render() {   
     return(
       <ErrorBoundary>
-        <CakeListComponent cakes={this.props.cakes} />        
+        <CakeListComponent cakes={this.props.cakes} /> 
       </ErrorBoundary>
     )
   }
 }
 
-function mapStateToProps(state) {
+function mapStateToProps(state) { 
   return{
     cakes : state.CakeReducer.cakes
   };
@@ -29,7 +28,7 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
   return{
-    fetchCakes: () => dispatch(cakesApi.fetchCakes())
+    fetchCakes: () => dispatch(cakesApi.fetchCakes())    
   };
 }
 

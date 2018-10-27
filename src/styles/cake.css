@@ -1,4 +1,4 @@
-.cake--add {
+.cakeadd {
     margin: 1.5em;
 }
   
@@ -11,7 +11,8 @@
     padding: 2em;
 }
   
-.cake--add button {
-    width: 20em;
+.cakeadd--button {    
+    text-align: center;
+    margin: 1em;
 }
  

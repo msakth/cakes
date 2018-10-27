@@ -1,47 +1,78 @@
 import React from 'react';
+import {withRouter} from 'react-router-dom';
 import '../styles/cake.css';
 
 class CakeComponent extends React.Component {
+
+  constructor(props) {
+    super(props);
+    this.state = { name: '', comment: '', yumFactor: '', imageUrl: '' }
+  }
+
+  handleSubmit = (event) => {
+    event.preventDefault();
+    this.props.addCake(this.state);
+  }
+
+  handleOnChange = (event) => {
+    const fieldName = event.target.name;
+    if( fieldName === 'name' )  this.setState({name: event.target.value});
+    if( fieldName === 'imageUrl' )  this.setState({imageUrl: event.target.value});    
+    if( fieldName === 'comment' )  this.setState({comment: event.target.value});
+    if( fieldName === 'yumFactor' )  this.setState({comment: event.target.value});    
+  }
+
     render() {
+
+      const{name, comment, yumFactor, imageUrl} = this.state;
+
         return(            
-                <form>
-                  <React.Fragment>
-                    <div className="cake--add">
+                <form onSubmit={this.handleSubmit}>                  
+                    <div className="cakeadd">
                       <div className='panel panel-default'>
                         <div className="panel-heading">
                           <h2 className="panel-title">Add New Cake</h2>
                         </div>
                       <div className="panel-body">
-                        <div className="row">
-                          <div className="col-xs-12 col-sm-4">
-                              <label htmlFor="stockSymbol">Stock Symbol</label>
-                              <select id="stockSymbol" name="stockSymbol" className="form-control"  required>
-                                
-                              </select>
+                       
+                          <div className="col-xs-12 col-sm-6">
+                              <label htmlFor="name">Name</label>
+                              <input id="name" name="name" className="form-control" value={name} onChange={this.handleOnChange}  type="text" required />                         
                           </div>
-                          <div className="col-xs-12 col-sm-4">
-                              <label htmlFor="price">Price</label>
-                              <input id="price" name="price" className="form-control" type="text" pattern="^[1-9]\d*(\.\d+)?$"  required maxLength={10} />
-                              <small className="form-text text-muted pull-left">must contain only numbers or decimal numbers</small>
+
+                          <div className="col-xs-12 col-sm-6">
+                              <label htmlFor="imageUrl">ImageUrl</label>
+                              <input id="imageUrl" name="imageUrl" className="form-control" value={imageUrl} onChange={this.handleOnChange}  type="text" required />                             
                           </div>
-                          <div className="col-xs-12 col-sm-4">
-                              <label htmlFor="shares">No of shares</label>
-                              <input id="shares" name="shares" className="form-control" type="text" pattern="[0-9]*"  required maxLength={10}/>
-                              <small className="form-text text-muted pull-left">must contain only numbers</small>
+
+                           <div className="col-xs-12 col-sm-6">
+                              <label htmlFor="yumFactor">YumFactor</label>
+                              <select id="yumFactor" name="yumFactor" className="form-control" value={yumFactor} onChange={this.handleOnChange} required>
+                              {/* ToDoMS: use seperate function to create these option values */}
+                                <option value=''>Select</option>
+                                <option value='1'>1</option>
+                                <option value='2'>2</option>
+                                <option value='3'>3</option>
+                                <option value='4'>4</option>
+                                <option value='5'>5</option>
+                              </select>                              
                           </div>
+
+                          <div className="col-xs-12 col-sm-6">
+                              <label htmlFor="comment">Comment</label>
+                              <textarea id="comment" name="comment" className="form-control" type="text" value={comment} onChange={this.handleOnChange} required/>
+                          </div>
+                         
                         </div>
-                      </div>
-                    </div>
-                    <div className="row">
-                      <button className="btn btn-primary">Submit</button>
-                    </div>
+                        <div className="cakeadd--button">
+                          <button className="btn btn-primary" type="submit">Submit</button>
+                        </div>                         
+                      </div>                   
                   </div>
-          
-                </React.Fragment>
-              </form>
+                </form>
               );
         
     }
 }
 
-export default CakeComponent;
+export default withRouter(CakeComponent);

@@ -1,9 +1,19 @@
 
-const cakeListTypes = {    
-    LIST_CAKES_SUCCESS: 'LIST_CAKES_SUCCESS',
-    LIST_CAKES_FAILURE: 'LIST_CAKES_FAILURE',
-};
+const createCake = {
+    CREATE_CAKE: 'CREATE_CAKE'
+}
 
-export const ActionTypes = {
-    cakeListTypes
+const receiveError = {
+    RECEIVE_ERROR: 'RECEIVE_ERROR'
+}
+
+const receiveCakeActions = {
+    RECEIVE_CAKES_DATA: 'RECEIVE_CAKES_DATA',
+    RECEIVE_CAKE: 'RECEIVE_CAKES'
+}
+
+export const ActionTypes = {    
+    receiveError,
+    receiveCakeActions,
+    createCake
 };

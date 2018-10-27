@@ -12,4 +12,6 @@ describe('cake list component', () => {
     it('CakeListComponent should render without crashing', () => {
         shallow(<CakeListComponent />);
     });
+
+    
 });
