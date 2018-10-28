@@ -2,6 +2,7 @@
 const merge = require('webpack-merge');
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const open = require('open');
 const commonConfig = require('./common');
 
@@ -17,8 +18,24 @@ module.exports = merge(commonConfig, {
   devServer: {
     hot: true
   },
+  module: {
+    rules: [
+    {
+      test: /\.css$/,
+      use: [
+        'style-loader',
+        'css-loader'                
+        ],       
+      }
+    ]
+  },
   devtool: 'cheap-module-eval-source-map',
   plugins: [
+    // Extract css into a separate file
+    new MiniCssExtractPlugin({      
+      filename: '[name].css' ,
+      chunkFilename: '[id].css',
+    }),
     new webpack.HotModuleReplacementPlugin(),
     new HtmlWebpackPlugin({template: 'index.html',})   
   ],

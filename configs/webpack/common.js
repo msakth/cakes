@@ -13,15 +13,7 @@ module.exports = {
         test: /\.(js|jsx)$/,
         use: ['babel-loader'],
         exclude: /node_modules/,
-      },
-      {
-        test: /\.css$/,
-        use: [
-          'style-loader',
-          {loader: 'css-loader', options: {importLoaders: 1}}
-        ]        
-      }, 
-    
+      },    
       {
         test: /\.(jpe?g|png|gif|svg)$/i,
         loaders: [
@@ -41,7 +33,7 @@ module.exports = {
     }
     ],
   },
-  plugins: [    
+  plugins: [
   ],  
   performance: {
     hints: false,

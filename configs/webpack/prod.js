@@ -1,6 +1,8 @@
 // production config
 const WebpackMd5Hash = require('webpack-md5-hash');
-
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");
+const UglifyJsPlugin = require("uglifyjs-webpack-plugin");
 const merge = require('webpack-merge');
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
@@ -17,7 +19,22 @@ module.exports = merge(commonConfig, {
     path: resolve(__dirname, '../../dist'),
     publicPath: '/',
   },
+  module: {
+    rules: [
+    {
+      test: /\.css$/,
+      use: [
+        MiniCssExtractPlugin.loader,
+        'css-loader'                
+      ],       
+    }
+  ]
+  },
   plugins: [
+    new MiniCssExtractPlugin({      
+      filename: '[name].[hash].css',
+      chunkFilename: '[id].[hash].css',
+    }),
      // Hash the files using MD5
     new WebpackMd5Hash(),
 
@@ -42,6 +59,15 @@ module.exports = merge(commonConfig, {
     new webpack.optimize.AggressiveMergingPlugin() //Merge chunks
   ],
   optimization: {
+    // Minify css
+    minimizer: [
+      new UglifyJsPlugin({
+        cache: true,
+        parallel: true,
+        sourceMap: true 
+      }),
+      new OptimizeCSSAssetsPlugin({})
+    ],
     splitChunks: {
       chunks: 'async',
       minSize: 30000,
