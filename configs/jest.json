@@ -4,7 +4,8 @@
     "collectCoverageFrom": [
       "<rootDir>/src/**/*.{js,jsx}",
       "!<rootDir>/node_modules/",
-      "!<rootDir>/tests/"
+      "!<rootDir>/tests/",
+      "!src/index.js"      
     ],
     "setupFiles": [
       "<rootDir>/tests/__mocks__/axios.js",

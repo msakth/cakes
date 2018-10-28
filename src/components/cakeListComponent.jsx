@@ -1,5 +1,5 @@
 import React from 'react';
-
+import PropTypes from 'prop-types';
 import CakeRowComponent from './cakeRowComponent';
 import { withRouter } from 'react-router-dom';
 import '../styles/cakeList.css';
@@ -39,5 +39,10 @@ class CakeListComponent extends React.Component {
         );
     }
 }
+
+
+CakeListComponent.propTypes = {
+    cakes: PropTypes.array.isRequired
+  }
 
 export default withRouter(CakeListComponent);

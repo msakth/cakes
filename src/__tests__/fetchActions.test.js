@@ -1,5 +1,5 @@
-import configureMockStore from 'redux-mock-store'
-import thunk from 'redux-thunk'
+import configureMockStore from 'redux-mock-store';
+import thunk from 'redux-thunk';
 import { ActionTypes } from '../constants/ActionTypes';
 import { fetchCakesAync } from '../actions/fetchActions';
 

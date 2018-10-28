@@ -4,14 +4,15 @@ import {shallow} from 'enzyme';
 import  CakeListComponent  from '../components/cakeListComponent.jsx';
 
 describe('cake list component', () => {
-
+    
+    const cakes = [{name:'firstcake'}];
+   
     beforeEach(() => {
-        shallow(<CakeListComponent />);
+        shallow(<CakeListComponent cakes={cakes} />);
     })
 
     it('CakeListComponent should render without crashing', () => {
-        shallow(<CakeListComponent />);
+        shallow(<CakeListComponent cakes={cakes}/>);
     });
-
-    
+ 
 });

@@ -22,7 +22,7 @@ class CakeViewComponent extends React.PureComponent {
                         
                         <div className="col-xs-12 col-sm-6">
                               <label htmlFor="name">Name</label>
-                              <input id="comment" name="name" className="form-control" type="text" value={cake.name} readOnly/>
+                              <input id="name" name="name" className="form-control" type="text" value={cake.name} readOnly/>
                         </div>
                         <div className="col-xs-12 col-sm-6">
                               <label htmlFor="comment">Comment</label>

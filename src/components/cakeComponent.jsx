@@ -1,5 +1,5 @@
 import React from 'react';
-import {withRouter} from 'react-router-dom';
+
 import '../styles/cake.css';
 
 class CakeComponent extends React.Component {
@@ -75,4 +75,5 @@ class CakeComponent extends React.Component {
     }
 }
 
-export default withRouter(CakeComponent);
+
+export default CakeComponent;
